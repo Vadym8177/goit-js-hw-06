@@ -12,19 +12,15 @@ btnDestroy.addEventListener('click', destroyBoxes);
 
 function createBoxes(amount) {
   amount = input.value;
-  let boxSize = 30;
+
   for (let i = 0; i < amount; i += 1) {
-    const newBoxes = document.createElement('div');
-    newBoxes.style.width = boxSize + 'px';
-    newBoxes.style.height = boxSize + 'px';
-    boxSize += 10;
-    newBoxes.style.backgroundColor = getRandomHexColor();
-    boxes.append(newBoxes);
+    let boxSize = 30 + i * 10;
+    const markup = `<div class="square" style="background-color:${getRandomHexColor()}; width:${boxSize}px; height:${boxSize}px;"></div>`;
+    boxes.insertAdjacentHTML('beforeend', markup);
   }
 }
 
-
-function destroyBoxes(event) {
+function destroyBoxes() {
   boxes.innerHTML = '';
   document.querySelector('input').value = '';
 }
