@@ -12,12 +12,14 @@ btnDestroy.addEventListener('click', destroyBoxes);
 
 function createBoxes(amount) {
   amount = input.value;
-
+  let markupAr = [];
+  let markup = '';
   for (let i = 0; i < amount; i += 1) {
     let boxSize = 30 + i * 10;
-    const markup = `<div class="square" style="background-color:${getRandomHexColor()}; width:${boxSize}px; height:${boxSize}px;"></div>`;
-    boxes.insertAdjacentHTML('beforeend', markup);
+    markup = `<div class="square" style="background-color:${getRandomHexColor()}; width:${boxSize}px; height:${boxSize}px;"></div>`;
+    markupAr.push(markup);
   }
+  return boxes.insertAdjacentHTML('beforeend', markupAr.join(''));
 }
 
 function destroyBoxes() {
