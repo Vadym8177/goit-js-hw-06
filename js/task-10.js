@@ -16,7 +16,7 @@ function createBoxes(amount) {
   let markup = '';
   for (let i = 0; i < amount; i += 1) {
     let boxSize = 30 + i * 10;
-    markup = `<div class="square" style="background-color:${getRandomHexColor()}; width:${boxSize}px; height:${boxSize}px;"></div>`;
+    markup = `<div style="background-color:${getRandomHexColor()}; width:${boxSize}px; height:${boxSize}px;"></div>`;
     markupAr.push(markup);
   }
   return boxes.insertAdjacentHTML('beforeend', markupAr.join(''));
@@ -24,5 +24,5 @@ function createBoxes(amount) {
 
 function destroyBoxes() {
   boxes.innerHTML = '';
-  document.querySelector('input').value = '';
+  input.value = '';
 }
